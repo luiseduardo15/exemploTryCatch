@@ -9,5 +9,28 @@ package com.mycompany.testeerroapp;
  * @author Dudu
  */
 public class TesteErroApp {
+    Connection conn;
+
+   try {
+       Connection conn = this.getConnection();
+   }
+   catch (Exception e) {
+       System.out.println(e.getMessage());
+   }
+   finally {
+       if (conn != null) {
+           if (!conn.isClosed()) {
+              try {
+                 conn.close();
+              }
+              catch (SQLException ex) {} 
+           }
+       }
+   }
+
+   public Connection getConnection throw Exception () {
+        throw new Excpetion("Erro ao criar uma conexão");
+   }
+}
     
 }
